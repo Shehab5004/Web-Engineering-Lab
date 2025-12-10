@@ -1,0 +1,21 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+      list-style: none;
+      text-decoration: none;
+  }
+
+ 
+
+  body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      max-width: 100%;
+      margin: auto;
+  }
