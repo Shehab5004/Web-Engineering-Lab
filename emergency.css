@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f8ff;
+}
+
+/* Header */
+.em-banner {
+  background-image: url("./image/doctor3.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.em-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.09);
+}
+
+.em-banner h1,
+.em-banner p {
+  position: relative;
+  z-index: 2;
+  color: #003357;
+}
+
+/* Container */
+.emergency-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+/* Doctor Cards */
+.em-card {
+  background: white;
+  width: 320px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Availability */
+.status {
+  font-weight: bold;
+  margin: 5px 0;
+}
+.available {
+  color: green;
+}
+
+/* Hotline box */
+.hotline-box {
+  background: #eef4ff;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+/* Call button */
+.call-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: #009bff;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+}
