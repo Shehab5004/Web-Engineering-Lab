@@ -83,3 +83,86 @@ session_start();
     </style>
 </head>
 <body>
+
+<?php
+if (isset($_SESSION['user_id'])) {
+    $conn = new mysqli("localhost", "root", "", "project");
+    if (!$conn) {
+        die("Connection failed: ");
+    }
+
+    $user_id = $_SESSION['user_id'];
+    $sql = "SELECT `Full Name`, `Email` FROM users WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $stmt->bind_result($name, $email);
+
+    if ($stmt->fetch()) {
+        echo "<div class='profile-box'>";
+        echo "<div class='profile-image'>👤</div>";
+        echo "<h2>" . htmlspecialchars($name) . "</h2>";
+        echo "<p class='info-value'>" . htmlspecialchars($email) . "</p>";
+        echo "<a href='index.html' class='button'>Home</a>";
+        echo "<a href='logout.php' class='button'>Logout</a>";
+        echo "</div>";
+    } else {
+        echo "<div class='profile-box'><h2>User not found</h2></div>";
+    }
+
+    $stmt->close();
+
+    // appointment info
+    echo "<h3 style='text-align:center;'>My Appointments</h3>";
+
+    $apptQuery = "SELECT * FROM appointment WHERE Email = ?";
+    $apptStmt = $conn->prepare($apptQuery);
+    $apptStmt->bind_param("s", $email);
+    $apptStmt->execute();
+    $apptResult = $apptStmt->get_result();
+
+    if ($apptResult->num_rows > 0) {
+        echo "<table border='1' style='margin:auto; margin-top:20px; border-collapse: collapse;'>
+                <tr>
+                    <th>Patient Name</th><th>DOB</th><th>Gender</th><th>Contact</th><th>Request</th>
+                    <th>Specialty</th><th>Doctor</th><th>Date</th><th>Time</th><th>Actions</th>
+                </tr>";
+
+        while ($row = $apptResult->fetch_assoc()) {
+            echo "<tr>
+                    <td>{$row['Patient Name']}</td>
+                    <td>{$row['Date of Birth']}</td>
+                    <td>{$row['Gender']}</td>
+                    <td>{$row['Contact Number']}</td>
+                    <td>{$row['Request For']}</td>
+                    <td>{$row['Specialty For Consultation']}</td>
+                    <td>{$row['Doctor']}</td>
+                    <td>{$row['Appointment Date']}</td>
+                    <td>{$row['Appointment Time']}</td>
+                    <td>
+                        <a href='update_appointment.php?id={$row['id']}' class='button'>Update</a>
+                        <a href='delete_appointment.php?id={$row['id']}' class='button' onclick='return confirm(\"Are you sure?\")'>Delete</a>
+                    </td>
+                  </tr>";
+        }
+
+        echo "</table>";
+    } else {
+        echo "<p style='text-align:center;'>No appointments found.</p>";
+    }
+
+    $apptStmt->close();
+    $conn->close();
+} else {
+    echo "<div class='profile-box'>";
+    echo "<div class='profile-image'>👤</div>";
+    echo "<h2>You are not logged in!</h2>";
+    echo "<a href='login.html' class='button'>Login</a> ";
+    echo "<a href='signupform.html' class='button'>Sign Up</a>";
+    echo "</div>";
+}
+?>
+
+
+</body>
+</html>
