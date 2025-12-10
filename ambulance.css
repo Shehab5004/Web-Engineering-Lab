@@ -1,0 +1,75 @@
+/* Banner Section */
+.ambulance-banner {
+  background-image: url("./image/ambulance.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.ambulance-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.09);
+}
+
+.ambulance-banner h1,
+.ambulance-banner p {
+  position: relative;
+  z-index: 2;
+  color: #005b9b;
+}
+
+/* Hotline */
+.hotline-section {
+  background: #ffe5e5;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.hotline-number {
+  font-size: 40px;
+  color: red;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.sub-text {
+  color: #333;
+}
+
+/* Ambulance List */
+.ambulance-list {
+  padding: 40px 20px;
+}
+
+.ambulance-list h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.ambulance-card {
+  background: #f0f8ff;
+  border-left: 6px solid #0077cc;
+  padding: 20px;
+  margin: 15px auto;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ambulance-card h3 {
+  margin-bottom: 10px;
+  color: #0077cc;
+}
+
+.ambulance-card p {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
