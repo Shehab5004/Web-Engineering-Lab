@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "driver_name": "Rahim Uddin",
+    "phone": "01711111111",
+    "location": "Dhaka Medical",
+    "status": "available"
+  },
+  {
+    "id": 2,
+    "driver_name": "Karim Sheikh",
+    "phone": "01822222222",
+    "location": "Mirpur 10",
+    "status": "busy"
+  },
+  {
+    "id": 3,
+    "driver_name": "Azad Mia",
+    "phone": "01933333333",
+    "location": "Banani",
+    "status": "available"
+  },
+  {
+    "id": 4,
+    "driver_name": "Sharif Molla",
+    "phone": "01933388333",
+    "location": "Bashundhara",
+    "status": "available"
+  },
+  {
+    "id": 5,
+    "driver_name": "Ayon Mondol",
+    "phone": "01741333333",
+    "location": "Dhanmondi",
+    "status": "busy"
+  }
+]
